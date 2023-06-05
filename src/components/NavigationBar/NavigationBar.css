@@ -1,0 +1,24 @@
+.navigation-outer-wrapper {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    background-color: black;
+    padding-right: 1rem;
+}
+
+.nav-bar {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: flex-end;
+}
+
+.search-bar {
+    height: 1.5rem;
+    width: 300px;
+    margin: 5px;
+    padding-left: 1rem;
+    align-self: center;
+    border-radius: 10px;
+    border: none;
+}
