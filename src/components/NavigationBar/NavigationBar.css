@@ -16,19 +16,22 @@
 .search-bar {
     height: 1.5rem;
     width: 300px;
-    margin: 5px;
+    margin: 15px;
     padding-left: 1rem;
     align-self: center;
     border-radius: 10px;
     border: none;
 }
 
+.search-button {
+
+}
+
 .nav-link {
     text-decoration: none;
-    color: white;
 }
 
 .nav-link:visited {
     text-decoration: none;
     color: white;
-} 
+}

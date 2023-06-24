@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './TrendingPage.css';
-import MovieCard from '../components/MovieCard/Moviecard.js';
+import MovieCard from '../../components/MovieCard/MovieCard';
 
 function TrendingPage() {
     const [trendingList, setTrendingList] = useState([]);
@@ -36,7 +36,7 @@ function TrendingPage() {
                 ) : (
                     <ul className="trending-list">
                         {trendingList.map((movie) => (
-                            <MovieCard movie={movie} key={movie.id} />
+                            <MovieCard movie={movie} key={movie.id} name={movie.title} />
                         ))}
                     </ul>
                 )}

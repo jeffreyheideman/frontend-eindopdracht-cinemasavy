@@ -1,0 +1,25 @@
+.movie-card {
+    list-style: none;
+    border-radius: 5px;
+}
+
+.movie-title {
+    font-size: 10px;
+}
+
+.movie-rating {
+    font-size: 10px;
+}
+
+.movie-poster {
+    border-radius: 10px;
+}
+
+.movie-card-link {
+    text-decoration: none;
+    color: white;
+}
+
+.movie-card-link:visited {
+    color: white;
+}
