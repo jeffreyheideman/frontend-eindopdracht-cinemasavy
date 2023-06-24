@@ -9,7 +9,7 @@ function Home() {
     const [isLoading, setIsLoading] = useState(true);
 
     const API_KEY = 'd003c2ad249ab65c42c387482cebde5b';
-    const API_ENDPOINT = `https://api.themoviedb.org/3/tv/airing_today?api_key=${API_KEY}`;
+    const API_ENDPOINT = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}`;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -42,7 +42,7 @@ function Home() {
                 ) : (
                     <ul className="trending-list">
                         {limitedAiringTodayList.map((movie) => (
-                            <MovieCard movie={movie} key={movie.id} name={movie.name} />
+                            <MovieCard movie={movie} key={movie.id} name={movie.title} />
                         ))}
                     </ul>
                 )}
