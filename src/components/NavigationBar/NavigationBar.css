@@ -22,3 +22,13 @@
     border-radius: 10px;
     border: none;
 }
+
+.nav-link {
+    text-decoration: none;
+    color: white;
+}
+
+.nav-link:visited {
+    text-decoration: none;
+    color: white;
+} 
