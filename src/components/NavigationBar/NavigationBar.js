@@ -30,8 +30,13 @@ const NavigationBar = ({ onSearch }) => {
                         </Link>
                     </li>
                     <li className="nav-item">
+                        <Link className="nav-link" to="/trending">
+                            Trending
+                        </Link>
+                    </li>
+                    <li className="nav-item">
                         <Link className="nav-link" to="/movieoverview">
-                            Movies
+                            My Watchlist
                         </Link>
                     </li>
                     <li className="nav-item">
@@ -39,11 +44,7 @@ const NavigationBar = ({ onSearch }) => {
                             Profile
                         </Link>
                     </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/trending">
-                            Trending
-                        </Link>
-                    </li>
+
                 </ul>
             </nav>
         </div>
