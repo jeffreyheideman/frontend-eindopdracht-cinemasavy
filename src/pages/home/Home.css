@@ -2,3 +2,17 @@
     display: flex;
     justify-content: center;
 }
+
+.movie-list-container {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+.new-movie-list {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}

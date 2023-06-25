@@ -5,20 +5,15 @@ import Home from './pages/home/Home';
 import MovieOverview from './pages/movieoverview/MovieOverview';
 import ProfilePage from './pages/profilepage/ProfilePage';
 import TrendingPage from './pages/trendingpage/TrendingPage';
-import cinema from "./assets/SpookyCinema-3.jpg";
 import './App.css'; // Import the CSS file for styling
 import MovieDetailPage from './pages/moviedetailpage/MovieDetailPage';
 
-function App() {
-    const [searchQuery, setSearchQuery] = useState('');
 
-    const handleSearch = (query) => {
-        setSearchQuery(query);
-    };
+function App() {
 
     return (
         <div className="app-container">
-            <NavigationBar onSearch={handleSearch} />
+            <NavigationBar />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/movieoverview" element={<MovieOverview />} />
