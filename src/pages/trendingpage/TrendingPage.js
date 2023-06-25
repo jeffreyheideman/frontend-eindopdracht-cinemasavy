@@ -29,7 +29,7 @@ function TrendingPage() {
 
     return (
         <>
-            <h1>Trending</h1>
+            <h1 className="title-trending">Trending</h1>
             <div>
                 {isLoading ? (
                     <p>Loading...</p>

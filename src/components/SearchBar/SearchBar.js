@@ -8,16 +8,20 @@ function SearchBar({ searchKey, onSearch, onInputChange }) {
     };
 
     return (
+        <div className="search-bar-container">
         <form className="search-bar-form" onSubmit={handleSubmit}>
             <input
                 type="text"
                 value={searchKey}
                 onChange={onInputChange}
                 className="search-bar-input"
+                placeholder="Search for a movie"
             />
-            <button className="search-bar-btn" type="submit">Search</button>
+            <button className="search-bar-btn" type="submit"></button>
         </form>
+        </div>
     );
+
 }
 
 export default SearchBar;
