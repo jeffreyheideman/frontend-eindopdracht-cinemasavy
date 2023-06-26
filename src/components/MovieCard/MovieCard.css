@@ -1,6 +1,7 @@
 .movie-card {
     list-style: none;
     border-radius: 5px;
+    height: 300px;
 }
 
 .movie-title {
@@ -24,7 +25,7 @@
     color: white;
 }
 
-.movie-card-placeholder {
+.movie-placeholder {
     width: 190px;
     height: 300px;
     background-color: black;

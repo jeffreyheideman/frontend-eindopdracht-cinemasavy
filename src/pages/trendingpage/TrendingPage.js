@@ -2,34 +2,53 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './TrendingPage.css';
 import MovieCard from '../../components/MovieCard/MovieCard';
+import SearchBar from "../../components/SearchBar/SearchBar";
 
 function TrendingPage() {
     const [trendingList, setTrendingList] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [searchKey, setSearchKey] = useState('');
 
     const API_KEY = 'd003c2ad249ab65c42c387482cebde5b';
-    const API_ENDPOINT = `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`;
+    const SEARCH_TYPE = searchKey ? 'search/movie' : 'trending/movie/day';
+    const API_ENDPOINT = `https://api.themoviedb.org/3/${SEARCH_TYPE}?api_key=${API_KEY}`;
+
+    const fetchData = async () => {
+        try {
+            const url = searchKey
+                ? `${API_ENDPOINT}&query=${encodeURIComponent(searchKey)}`
+                : API_ENDPOINT;
+            const response = await axios.get(url);
+            const { results } = response.data;
+            setTrendingList(results);
+            setIsLoading(false);
+            console.log(results);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            setIsLoading(false);
+        }
+    };
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get(API_ENDPOINT);
-                const { results } = response.data;
-                setTrendingList(results);
-                setIsLoading(false);
-                console.log(results);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-                setIsLoading(false);
-            }
-        };
-
         fetchData();
-    }, []);
+    }, [searchKey]);
+
+    const handleSearch = () => {
+        fetchData();
+    }
+
+    const handleInputChange = (e) => {
+        setSearchKey(e.target.value);
+    }
 
     return (
         <>
-            <h1 className="title-trending">Trending</h1>
+            <SearchBar
+                searchKey={searchKey}
+                onSearch={handleSearch}
+                onInputChange={handleInputChange}
+            />
+            {searchKey ? null : <h1 className="title-trending">Trending</h1>}
             <div>
                 {isLoading ? (
                     <p>Loading...</p>

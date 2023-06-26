@@ -27,10 +27,8 @@ function MovieDetailPage() {
                 if (officialTrailer) {
                     setTrailerKey(officialTrailer.key);
                 } else if (results.length > 0) {
-                    // If no "official trailer" found, use the first video in the array
                     setTrailerKey(results[0].key);
                 } else {
-                    // No trailer available
                     setTrailerKey('');
                 }
             } catch (error) {
