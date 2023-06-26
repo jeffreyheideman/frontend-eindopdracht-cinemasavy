@@ -1,4 +1,5 @@
 import React, {createContext, useState} from 'react';
+import jwt_decode from "jwt-decode";
 
 export const AuthContext = createContext(null)
 
@@ -11,18 +12,22 @@ function AuthContextProvider({children}) {
     });
 
     function login(jwtToken) {
+        const decodedToken = jwt_decode(jwtToken);
+        localStorage.setItem("jwtToken", jwtToken);
+        console.log(decodedToken)
         setAuth({
             ...auth,
             isAuth: true,
             user: {
-                email: 'Klaasje@novi.nl',
-                id: 1,
+                email: decodedToken.email,
+                id: decodedToken.id,
                 }
         });
         console.log("De gebruiker is ingelogd");
     }
 
     function logout() {
+        localStorage.removeItem("jwtToken");
         setAuth({
             ...auth,
             isAuth: false,

@@ -3,7 +3,7 @@ import {AuthContext} from "../../context/AuthContext";
 import axios from "axios";
 
 function Login() {
-    const {login} = useContext(AuthContext);
+    const {login, logout} = useContext(AuthContext);
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -21,7 +21,7 @@ const handleSubmit = async (e) => {
                 "Bearer": "xxx.xxx.xxx"
             }
         });
-        login();
+        login(response.data.accessToken);
         console.log("De gebruiker is ingelogd", response);
         } catch (e) {
         console.error("Er is iets misgegaan met het inloggen", e);
@@ -34,7 +34,7 @@ const handleSubmit = async (e) => {
         <main>
             <h2>Log in</h2>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="usernama">username</label>
+                <label htmlFor="username">username</label>
                 <input type="username" id="username" name="username" required value={username} onChange={(e) => setUsername(e.target.value)} />
                 <label htmlFor="password">Password</label>
                 <input type="password" id="password" name="password" required value={password} onChange={(e) => setPassword(e.target.value)} />
