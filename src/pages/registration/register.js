@@ -1,53 +1,3 @@
-/*
-import React, {useState} from 'react';
-import axios from "axios";
-
-function Register() {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [email, setEmail] = useState('');
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        try {
-            const response = await axios.post("https://frontend-educational-backend.herokuapp.com/api/auth/signup", {
-                username: username,
-                email: email,
-                password: password,
-                role: ["user", "admin"]
-            }, {
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": "Bearer xxx.xxx.xxx",
-                }
-            });
-            console.log("De gebruiker is geregistreerd", response);
-        } catch (e) {
-            console.error("Er is iets misgegaan met het registreren", e.response);
-        }
-    }
-
-    return (
-        <main>
-            <h2>Register</h2>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="username">Username</label>
-                <input type="text" id="username" name="username" required value={username} onChange={(e) => setUsername(e.target.value)} />
-                <label htmlFor="email">Email</label>
-                <input type="email" id="email" name="email" required value={email} onChange={(e) => setEmail(e.target.value)} />
-                <label htmlFor="password">Password</label>
-                <input type="password" id="password" name="password" required value={password} onChange={(e) => setPassword(e.target.value)} />
-                <label htmlFor="passwordCheck">Password Check</label>
-                <button type="submit">Register</button>
-            </form>
-        </main>
-    );
-}
-
-export default Register;*/
-
-
 import {useRef, useState, useEffect} from "react";
 import {faCheck, faTimes, faInfoCircle} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -149,25 +99,26 @@ const Register = () => {
 
     return (
         <>
-            <main>
+            <main className="registration-page">
                 {success ? (
-                    <section>
+                    <section className="form-container">
                         <h1>Success!</h1>
                         <p>
                             <a href="#">Sign In</a>
                         </p>
                     </section>
                 ) : (
-                    <section>
+                    <section className="form-container">
                         <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                         <h1>Register</h1>
-                        <form onSubmit={handleSubmit}>
-                            <label htmlFor="username">
+                        <form className="registration-form" onSubmit={handleSubmit}>
+                            <label className="auth-label" htmlFor="username">
                                 Username:
                                 <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"}/>
                                 <FontAwesomeIcon icon={faTimes} className={validName || !user ? "hide" : "invalid"}/>
                             </label>
                             <input
+                                className="username-input"
                                 type="text"
                                 id="username"
                                 ref={userRef}
@@ -187,7 +138,7 @@ const Register = () => {
                                 Letters, numbers, underscores, hyphens allowed.
                             </p>
 
-                            <label htmlFor="email">
+                            <label className="auth-label" htmlFor="email">
                                 Email:
                                 {validEmail && email ? (
                                     <FontAwesomeIcon icon={faCheck} className="valid" />
@@ -196,6 +147,7 @@ const Register = () => {
                                 )}
                             </label>
                             <input
+                                className="email-input"
                                 type="text"
                                 id="email"
                                 ref={emailRef}
@@ -216,12 +168,13 @@ const Register = () => {
                             </p>
 
 
-                            <label htmlFor="password">
+                            <label className="auth-label" htmlFor="password">
                                 Password:
                                 <FontAwesomeIcon icon={faCheck} className={validPwd ? "valid" : "hide"}/>
                                 <FontAwesomeIcon icon={faTimes} className={validPwd || !pwd ? "hide" : "invalid"}/>
                             </label>
                             <input
+                                className="pwd-input"
                                 type="password"
                                 id="password"
                                 onChange={(e) => setPwd(e.target.value)}
@@ -242,13 +195,14 @@ const Register = () => {
                             </p>
 
 
-                            <label htmlFor="confirm_pwd">
+                            <label className="auth-label" htmlFor="confirm_pwd">
                                 Confirm Password:
                                 <FontAwesomeIcon icon={faCheck} className={validMatch && matchPwd ? "valid" : "hide"}/>
                                 <FontAwesomeIcon icon={faTimes}
                                                  className={validMatch || !matchPwd ? "hide" : "invalid"}/>
                             </label>
                             <input
+                                className="pwd-confirm-input"
                                 type="password"
                                 id="confirm_pwd"
                                 onChange={(e) => setMatchPwd(e.target.value)}
@@ -264,7 +218,7 @@ const Register = () => {
                                 Must match the first password input field.
                             </p>
 
-                            <button disabled={!validName || !validPwd || !validMatch ? true : false}>Sign Up</button>
+                            <button className="login-btn" disabled={!validName || !validPwd || !validMatch}>Sign Up</button>
                         </form>
                         <p>
                             Already registered?<br/>

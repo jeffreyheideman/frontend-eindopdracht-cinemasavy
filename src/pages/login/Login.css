@@ -1,4 +1,4 @@
-.registration-page {
+.login-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -6,7 +6,7 @@
     margin: 4rem auto;
 }
 
-.form-container {
+.login-container {
     width: 100%;
     max-width: 420px;
     min-height: 400px;
@@ -17,7 +17,7 @@
     background-color: rgba(0,0,0,0.4);
 }
 
-.registration-form {
+.login-form {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -30,12 +30,8 @@ a, a:visited {
 }
 
 .username-input,
-.email-input,
-.pwd-input,
-.pwd-confirm-input,
-.email-input,
-.login-btn,
-.login-btn {
+.password-input,
+.login-button{
     font-family: 'Nunito', sans-serif;
     font-size: 22px;
     padding: 0.25rem;
@@ -43,11 +39,11 @@ a, a:visited {
 }
 
 .auth-label,
-.login-btn{
+.login-button {
     margin-top: 1rem;
 }
 
-.login-btn {
+.login-button {
     padding: 0.5rem;
 }
 
