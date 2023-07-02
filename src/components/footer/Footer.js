@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import InputField from "../inputfield/InputField";
 import './Footer.css';
 import Button from "../button/Button";
@@ -7,6 +7,8 @@ import emailjs from '@emailjs/browser';
 
 
 const Footer = () => {
+    const [successMessage, setSuccessMessage] = useState(false);
+
     const form = useRef();
 
     const sendEmail = (e) => {
@@ -14,7 +16,11 @@ const Footer = () => {
 
         emailjs.sendForm('service_ya411t2', 'template_eo2fb9s', form.current, '2oQ1A0nvaNQ_52uUJ')
             .then((result) => {
+                setSuccessMessage(true);
                 console.log(result.text);
+                setTimeout(() => {
+                    setSuccessMessage(false);
+                }, 5000);
             }, (error) => {
                 console.log(error.text);
             });
@@ -24,7 +30,7 @@ const Footer = () => {
     return (
         <footer className="footer" >
             <h3 className="footer-title">Contact</h3>
-            <form className="contact-form" onSubmit={sendEmail}
+            { successMessage ? (<h5>message send!</h5>) : (<form className="contact-form" onSubmit={sendEmail}
             ref={form}>
                 <label htmlFor="firstname">First Name</label>
                 <InputField
@@ -59,7 +65,7 @@ const Footer = () => {
                     className="contact-button"
                     value="Send"
                 />
-            </form>
+            </form>)}
 
         </footer>
     );

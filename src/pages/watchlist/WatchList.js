@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {GlobalContext} from "../../context/GlobalState";
 import MovieCard from "../../components/moviecard/MovieCard";
 import './WatchList.css';
 
 const WatchList = () => {
-    const {watchlist} = React.useContext(GlobalContext);
+    const {watchlist} = useContext(GlobalContext);
+
     return (
         <main className="watchlist-main">
             <h1 className="watchlist-title">My Watchlist</h1>
@@ -15,7 +16,7 @@ const WatchList = () => {
                     ))}
                 </div>
             ) : (
-                <h2>No movies in your list. Add some!</h2>
+                <h2>No movies in your list, Add some!</h2>
             )}
 
         </main>
