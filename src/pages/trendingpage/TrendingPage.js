@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './TrendingPage.css';
-import MovieCard from '../../components/MovieCard/MovieCard';
-import SearchBar from "../../components/SearchBar/SearchBar";
+import MovieCard from '../../components/moviecard/MovieCard';
+import SearchBar from "../../components/search/SearchBar";
 
 function TrendingPage() {
     const [trendingList, setTrendingList] = useState([]);
@@ -42,14 +42,14 @@ function TrendingPage() {
     }
 
     return (
-        <>
+        <main className="trending-page-container">
             <SearchBar
                 searchKey={searchKey}
                 onSearch={handleSearch}
                 onInputChange={handleInputChange}
             />
             {searchKey ? null : <h1 className="title-trending">Trending</h1>}
-            <div>
+            <div className="trending-list-outer-container">
                 {isLoading ? (
                     <p>Loading...</p>
                 ) : (
@@ -60,7 +60,7 @@ function TrendingPage() {
                     </ul>
                 )}
             </div>
-        </>
+        </main>
     );
 }
 

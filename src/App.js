@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
 import {Route, Routes, useNavigate} from 'react-router-dom';
-import NavigationBar from './components/NavigationBar/NavigationBar';
+import NavigationBar from './components/navigation/NavigationBar';
 import Home from './pages/home/Home';
 import ProfilePage from './pages/profilepage/ProfilePage';
 import TrendingPage from './pages/trendingpage/TrendingPage';

@@ -36,16 +36,13 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
-    margin-right: 2rem;
 }
 
-.log-reg-btn {
+.auth-button {
     background-color: darkred;
     color: white;
     padding: 0.2rem 1rem;
-    border-radius: 3px;
-
+    border-radius: 6px;
     cursor: pointer;
 }
 

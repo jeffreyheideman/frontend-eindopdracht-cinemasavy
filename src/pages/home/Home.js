@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import MovieCard from '../../components/MovieCard/MovieCard';
-import SearchBar from '../../components/SearchBar/SearchBar';
+import MovieCard from '../../components/moviecard/MovieCard';
+import SearchBar from '../../components/search/SearchBar';
 import './Home.css';
 
 function Home() {

@@ -1,5 +1,6 @@
 import React from 'react';
 import './SearchBar.css';
+import Button from "../button/Button";
 
 function SearchBar({ searchKey, onSearch, onInputChange }) {
     const handleSubmit = (e) => {
@@ -17,7 +18,7 @@ function SearchBar({ searchKey, onSearch, onInputChange }) {
                 className="search-bar-input"
                 placeholder="Search for a movie"
             />
-            <button className="search-bar-btn" type="submit"></button>
+            <Button type="button" className="search-bar-btn"/>
         </form>
         </div>
     );

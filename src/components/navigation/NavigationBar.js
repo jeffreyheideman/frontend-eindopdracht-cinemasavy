@@ -1,10 +1,13 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import './NavigationBar.css';
 import { AuthContext } from "../../context/AuthContext";
+import Button from "../button/Button";
 
 const NavigationBar = () => {
     const { isAuth, logout } = useContext(AuthContext);
+
+    const navigate = useNavigate()
 
     return (
         <div className="navigation-outer-wrapper">
@@ -33,20 +36,14 @@ const NavigationBar = () => {
                         </li>) : null}
                     </div>
                     {isAuth ? (
-                        <button className="logout-btn" onClick={logout}>
-                            Logout
-                        </button>
+                        <Button buttonName="Logout" type="button" onClick={logout} className="auth-button"/>
                     ) : (
                         <div className="login-register-container">
-                            <li className="nav-item log-reg-btn">
-                                <Link className="nav-link" to="/register">
-                                    Register
-                                </Link>
+                            <li className="nav-item">
+                                <Button buttonName="Register" type="button" className="auth-button" onClick={() => navigate("/register")}/>
                             </li>
-                            <li className="nav-item log-reg-btn">
-                                <Link className="nav-link" to="/login">
-                                    Login
-                                </Link>
+                            <li className="nav-item">
+                                <Button buttonName="Login" type="button" className="auth-button" onClick={() => navigate("/login")}/>
                             </li>
                         </div>
                     )}

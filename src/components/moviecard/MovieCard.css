@@ -35,3 +35,18 @@
     justify-content: center;
     align-items: center;
 }
+
+.movie-card-btn {
+    background-color: darkred;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 5px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.movie-card-btn:disabled {
+    background-color: grey;
+    color: darkgray;
+}

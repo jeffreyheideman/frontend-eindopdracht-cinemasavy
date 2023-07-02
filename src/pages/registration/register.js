@@ -3,6 +3,7 @@ import {faCheck, faTimes, faInfoCircle} from "@fortawesome/free-solid-svg-icons"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import axios from 'axios';
 import './register.css';
+import Button from "../../components/button/Button";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -218,7 +219,7 @@ const Register = () => {
                                 Must match the first password input field.
                             </p>
 
-                            <button className="login-btn" disabled={!validName || !validPwd || !validMatch}>Sign Up</button>
+                            <Button buttonName="Sign up" className="login-btn" disabled={!validName || !validPwd || !validMatch}>Sign Up</Button>
                         </form>
                         <p>
                             Already registered?<br/>

@@ -2,10 +2,11 @@ import React, { useContext } from 'react';
 import './MovieCard.css';
 import { Link } from 'react-router-dom';
 import { GlobalContext } from '../../context/GlobalState';
+import Button from "../button/Button";
 
-function MovieCard({ movie, name }) {
+function MovieCard({ movie, name, type }) {
     const placeholderText = 'No image found';
-    const { addMovieToWatchlist, watchlist } = useContext(GlobalContext);
+    const { addMovieToWatchlist, watchlist, removeMovieFromWatchlist } = useContext(GlobalContext);
 
 
     let storedMovie = watchlist.find((o) => o.id === movie.id);
@@ -32,7 +33,9 @@ function MovieCard({ movie, name }) {
                 <div className="title-rating-container">
                     <h3 className="movie-title">{name}</h3>
                     <p className="movie-rating">{movie.vote_average.toFixed(1)}</p>
-                    <button type="button" onClick={() => addMovieToWatchlist(movie)} disabled={watchlistDisabled}>Add to watchlist</button>
+
+                    <Button buttonName="+" onClick={() => addMovieToWatchlist(movie)} type="button" className="movie-card-btn" disabled={watchlistDisabled}/>
+                        <Button buttonName="-" onClick={() => removeMovieFromWatchlist(movie.id)} type="button" className="movie-card-btn" />
                 </div>
             </li>
         </div>
