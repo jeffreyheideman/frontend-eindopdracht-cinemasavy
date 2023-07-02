@@ -12,6 +12,7 @@ const NavigationBar = () => {
     return (
         <div className="navigation-outer-wrapper">
             <nav className="nav-element">
+               <h2 className="cinemasavvy">CinemaSavvy</h2>
                 <ul className="nav-bar">
                     <div className="nav-item-container">
                         <li className="nav-item">

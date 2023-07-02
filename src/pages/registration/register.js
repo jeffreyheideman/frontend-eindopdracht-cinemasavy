@@ -4,6 +4,8 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import axios from 'axios';
 import './register.css';
 import Button from "../../components/button/Button";
+import {Link} from "react-router-dom";
+
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -132,6 +134,7 @@ const Register = () => {
                                 onFocus={() => setUserFocus(true)}
                                 onBlur={() => setUserFocus(false)}
                             />
+
                             <p id="uidnote" className={userFocus && user && !validName ? "instructions" : "offscreen"}>
                                 <FontAwesomeIcon icon={faInfoCircle}/>
                                 4 to 24 characters.<br/>
@@ -225,7 +228,7 @@ const Register = () => {
                             Already registered?<br/>
                             <span className="line">
                             {/*put router link here*/}
-                                <a href="#">Sign In</a>
+                                <Link to="/login">Sign In</Link>
                         </span>
                         </p>
                     </section>

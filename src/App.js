@@ -11,6 +11,7 @@ import Register from "./pages/registration/register";
 import WatchList from "./pages/watchlist/WatchList";
 import {AuthContext} from "./context/AuthContext";
 import {GlobalProvider} from "./context/GlobalState";
+import Footer from "./components/Footer/Footer";
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
                 <Route path="/watchlist" element={ isAuth ? (<WatchList />) : (<Login/>)} />
                 <Route path="*" element={<h1>Not found</h1>} />
             </Routes>
+                <Footer />
         </GlobalProvider>
         </div>
     );
