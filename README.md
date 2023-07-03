@@ -2,7 +2,7 @@
 
 Deze webaplicatie maakt het mogelijk om informatie over films op te zoeken en ze aan je eigen watchlist toe te voegen.
 
-## Instalatie
+## Installatie
 
 1. clone deze repository
 Gebruik een code editor zoals Webstorm of VScode
