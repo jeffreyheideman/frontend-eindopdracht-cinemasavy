@@ -13,10 +13,10 @@ function Home() {
     const SEARCH_TYPE = searchKey ? 'search/movie' : 'movie/now_playing';
     const API_ENDPOINT = `https://api.themoviedb.org/3/${SEARCH_TYPE}?api_key=${API_KEY}`;
 
-    const fetchData = async (searchQuery) => {
+    const fetchData = async () => {
         try {
-            const url = searchQuery
-                ? `${API_ENDPOINT}&query=${encodeURIComponent(searchQuery)}`
+            const url = searchKey
+                ? `${API_ENDPOINT}&query=${encodeURIComponent(searchKey)}`
                 : API_ENDPOINT;
             const response = await axios.get(url);
             const { results } = response.data;

@@ -11,16 +11,15 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
     width: 100%;
 }
 
 .nav-bar {
     display: flex;
     list-style: none;
-    gap: 2rem;
     width: 100%;
     justify-content: space-between;
+
 }
 
 .nav-item-container {
@@ -44,6 +43,8 @@
     padding: 0.2rem 1rem;
     border-radius: 6px;
     cursor: pointer;
+    position: relative;
+    margin-right: 1rem;
 }
 
 
@@ -58,4 +59,23 @@
 
 .cinemasavy {
     color: darkred;
+}
+
+.picture {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0
+}
+
+.cinemasavy-link {
+    text-decoration: none;
+}
+
+.outer-profile-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }

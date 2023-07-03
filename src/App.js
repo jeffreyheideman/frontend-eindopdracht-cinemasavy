@@ -10,8 +10,8 @@ import Login from "./pages/login/Login";
 import Register from "./pages/registration/register";
 import WatchList from "./pages/watchlist/WatchList";
 import {AuthContext} from "./context/AuthContext";
-import {GlobalProvider} from "./context/GlobalState";
 import Footer from "./components/footer/Footer";
+import EditProfile from "./pages/editprofile/EditProfile";
 
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
                 <Route path="/register" element={<Register/>} />
                 <Route path="/" element={<Home />} />
                 <Route path="/profile" element={ isAuth ? (<ProfilePage />) : (<Login/>)} />}
-                <Route path="/profile/changeprofilepicture" element={ isAuth ? (<ProfilePage />) : (<Login/>)} />}
+                <Route path="/editprofile" element={ isAuth ? (<EditProfile />) : (<Login/>)} />}
                 <Route path="/trending" element={<TrendingPage />} />
                 <Route path="/movies/:id" element={<MovieDetailPage/> } />
                 <Route path="/watchlist" element={ isAuth ? (<WatchList />) : (<Login/>)} />

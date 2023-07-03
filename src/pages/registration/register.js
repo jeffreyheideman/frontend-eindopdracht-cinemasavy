@@ -72,19 +72,15 @@ const Register = () => {
                 username: user,
                 email: email,
                 password: pwd,
-                role: ["user", "admin"]
+                role: ["user"]
             }, {
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": "Bearer xxx.xxx.xxx",
                 }
             });
-            console.log(response?.data);
-            console.log(response?.accessToken);
-            console.log(JSON.stringify(response))
             setSuccess(true);
-            //clear state and controlled inputs
-            //need value attrib on inputs for this
+
             setUser('');
             setPwd('');
             setMatchPwd('');
@@ -105,10 +101,8 @@ const Register = () => {
             <main className="registration-page">
                 {success ? (
                     <section className="form-container">
-                        <h1>Success!</h1>
-                        <p>
-                            <a href="#">Sign In</a>
-                        </p>
+                        <h1 className="succes-msg">You're registered</h1>
+                        <p><Link to="/login">Sign in</Link></p>
                     </section>
                 ) : (
                     <section className="form-container">
@@ -227,7 +221,6 @@ const Register = () => {
                         <p>
                             Already registered?<br/>
                             <span className="line">
-                            {/*put router link here*/}
                                 <Link to="/login">Sign In</Link>
                         </span>
                         </p>
