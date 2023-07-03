@@ -79,9 +79,6 @@ const Register = () => {
                     "Authorization": "Bearer xxx.xxx.xxx",
                 }
             });
-            console.log(response?.data);
-            console.log(response?.accessToken);
-            console.log(JSON.stringify(response))
             setSuccess(true);
 
             setUser('');

@@ -22,7 +22,6 @@ function TrendingPage() {
             const { results } = response.data;
             setTrendingList(results);
             setIsLoading(false);
-            console.log(results);
         } catch (error) {
             console.error('Error fetching data:', error);
             setIsLoading(false);

@@ -44,7 +44,6 @@
     border-radius: 6px;
     cursor: pointer;
     position: relative;
-    top: -15px;
     margin-right: 1rem;
 }
 
@@ -68,4 +67,15 @@
     border-radius: 50%;
     object-fit: cover;
     margin: 0
+}
+
+.cinemasavy-link {
+    text-decoration: none;
+}
+
+.outer-profile-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }

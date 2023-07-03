@@ -17,7 +17,7 @@ const Footer = () => {
         emailjs.sendForm('service_ya411t2', 'template_eo2fb9s', form.current, '2oQ1A0nvaNQ_52uUJ')
             .then((result) => {
                 setSuccessMessage(true);
-                console.log(result.text);
+                // console.log(result.text);
                 setTimeout(() => {
                     setSuccessMessage(false);
                 }, 5000);

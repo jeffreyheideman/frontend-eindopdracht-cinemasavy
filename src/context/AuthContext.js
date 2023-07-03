@@ -1,6 +1,7 @@
-import React, {createContext, useState, useContext, useEffect} from 'react';
+import React, {createContext, useState, useEffect} from 'react';
 import jwt_decode from "jwt-decode";
 import {CheckTokenValidity} from "../helper/CheckTokenValidity";
+import {useNavigate} from "react-router-dom";
 
 
 export const AuthContext = createContext(null)
@@ -27,7 +28,7 @@ function AuthContextProvider({ children }) {
                 user: null,
            })
         }
-    },[])
+    },[auth])
 
     function login(jwtToken) {
         const decodedToken = jwt_decode(jwtToken);
@@ -48,13 +49,14 @@ function AuthContextProvider({ children }) {
             isAuth: false,
             user: null,
         });
+
     }
 
     const data = {
         isAuth: auth.isAuth,
         user: auth.user,
-        login: login,
-        logout: logout,
+        login,
+        logout,
     };
     return (
         <AuthContext.Provider value={data}>
