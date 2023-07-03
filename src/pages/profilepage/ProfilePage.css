@@ -1,0 +1,18 @@
+.edit-button {
+    background-color: darkred;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.profile-picture {
+    width: 200px;
+    border-radius: 50px;
+    margin: 1rem;
+}
+
+.profile {
+    margin: 3rem;
+}

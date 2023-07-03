@@ -3,8 +3,9 @@ import './ProfilePage.css';
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import Button from "../../components/button/Button";
 
-function ProfilePage(props) {
+const ProfilePage = () => {
     const { isAuth} = useContext(AuthContext);
     const [userData, setUserData] = useState("");
     const navigate = useNavigate();
@@ -21,7 +22,7 @@ function ProfilePage(props) {
                     Authorization: `Bearer ${localStorage.getItem('jwtToken')}`,
                 },
             });
-            console.log(response.data);
+            // console.log(response.data);
             setUserData(response.data);
         } catch (e) {
             console.log(e);
@@ -29,15 +30,18 @@ function ProfilePage(props) {
     }
 
 
+
     useEffect(() => {
         fetchUserData();
     }, [isAuth]);
 
     return (
-        <main>
+        <main className="profile">
             <h1>Profile</h1>
+            <img src={userData.profilePicture} alt="profile picture" className="profile-picture" />
             <p>Username: {userData.username}</p>
             <p>Email: {userData.email}</p>
+            <Button className="edit-button" buttonName="Edit Profile" onClick={() => navigate('/editprofile')}>Edit Profile</Button>
         </main>
     );
 }

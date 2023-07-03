@@ -43,8 +43,9 @@ a, a:visited {
     margin-top: 1rem;
 }
 
-.login-button {
+.login-btn {
     padding: 0.5rem;
+    cursor: pointer;
 }
 
 .instructions {
