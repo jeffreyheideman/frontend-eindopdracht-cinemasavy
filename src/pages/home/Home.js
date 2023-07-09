@@ -22,7 +22,6 @@ function Home() {
             const { results } = response.data;
             setAiringTodayList(results);
             setIsLoading(false);
-            console.log(results);
         } catch (error) {
             console.error('Error fetching data:', error);
             setIsLoading(false);

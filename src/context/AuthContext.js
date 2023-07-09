@@ -1,7 +1,7 @@
 import React, {createContext, useState, useEffect} from 'react';
 import jwt_decode from "jwt-decode";
 import {CheckTokenValidity} from "../helper/CheckTokenValidity";
-import {useNavigate} from "react-router-dom";
+
 
 
 export const AuthContext = createContext(null)
@@ -28,7 +28,7 @@ function AuthContextProvider({ children }) {
                 user: null,
            })
         }
-    },[auth])
+    },[])
 
     function login(jwtToken) {
         const decodedToken = jwt_decode(jwtToken);

@@ -5,7 +5,6 @@ import Button from "../../components/button/Button";
 import './EditProfile.css';
 
 const EditProfile = () => {
-    const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordConfirmation, setPasswordConfirmation] = useState('');
@@ -16,9 +15,6 @@ const EditProfile = () => {
 
         const payload = {};
 
-        if (username.trim() !== '') {
-            payload.username = username;
-        }
         if (email.trim() !== '') {
             payload.email = email;
         }
@@ -37,10 +33,7 @@ const EditProfile = () => {
                 }
             });
 
-            // Handle successful response
-            console.log('Profile updated successfully');
 
-            // Upload profile picture if selected
             if (profilePicture) {
                 const imagePayload = {
                     base64Image: profilePicture
@@ -52,13 +45,9 @@ const EditProfile = () => {
                         'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`
                     }
                 });
-
-                // Handle successful profile picture upload
-                console.log('Profile picture uploaded successfully');
-            }
+                            }
         } catch (error) {
-            // Handle error response or network errors
-            console.log('Error updating profile:', error);
+            console.error('Error updating profile:', error);
         }
     };
 
@@ -79,9 +68,6 @@ const EditProfile = () => {
         <main className="edit-profile-page">
             <h2>Edit your profile</h2>
             <form className="edit-profile-form" onSubmit={handleSubmit}>
-                <label htmlFor="username">Username:</label>
-                <InputField className="edit-input" type="text" value={username} onChange={e => setUsername(e.target.value)} />
-
                 <label htmlFor="email">E-mailadres:</label>
                 <InputField className="edit-input" type="email" value={email} onChange={e => setEmail(e.target.value)} />
 

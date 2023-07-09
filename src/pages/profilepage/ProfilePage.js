@@ -22,7 +22,6 @@ const ProfilePage = () => {
                     Authorization: `Bearer ${localStorage.getItem('jwtToken')}`,
                 },
             });
-            // console.log(response.data);
             setUserData(response.data);
         } catch (e) {
             console.log(e);
