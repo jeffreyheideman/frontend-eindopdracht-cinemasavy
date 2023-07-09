@@ -79,9 +79,11 @@ const NavigationBar = () => {
                                 />
                             </div>
                             <div>
-                                <Link to="/profile">
-                                    <img className="picture" src={img} alt="Profile Picture" />
-                                </Link>
+                                {img && (
+                                    <Link to="/profile">
+                                        <img className="picture" src={img} alt="Profile Picture" />
+                                    </Link>
+                                )}
                             </div>
                         </div>
                     ) : (

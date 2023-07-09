@@ -37,7 +37,8 @@ const ProfilePage = () => {
     return (
         <main className="profile">
             <h1>Profile</h1>
-            <img src={userData.profilePicture} alt="profile picture" className="profile-picture" />
+            {userData.profilePicture &&
+            <img src={userData.profilePicture} alt="profile picture" className="profile-picture" />}
             <p>Username: {userData.username}</p>
             <p>Email: {userData.email}</p>
             <Button className="edit-button" buttonName="Edit Profile" onClick={() => navigate('/editprofile')}>Edit Profile</Button>

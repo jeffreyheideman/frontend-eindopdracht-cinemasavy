@@ -9,6 +9,7 @@ const EditProfile = () => {
     const [password, setPassword] = useState('');
     const [passwordConfirmation, setPasswordConfirmation] = useState('');
     const [profilePicture, setProfilePicture] = useState(null);
+    const [succes, setSucces] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -44,8 +45,9 @@ const EditProfile = () => {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`
                     }
-                });
-                            }
+                });}
+            setSucces(true)
+
         } catch (error) {
             console.error('Error updating profile:', error);
         }
@@ -67,7 +69,7 @@ const EditProfile = () => {
     return (
         <main className="edit-profile-page">
             <h2>Edit your profile</h2>
-            <form className="edit-profile-form" onSubmit={handleSubmit}>
+            {succes ? (<h3>Your profile Has been updated</h3>) : (<form className="edit-profile-form" onSubmit={handleSubmit}>
                 <label htmlFor="email">E-mailadres:</label>
                 <InputField className="edit-input" type="email" value={email} onChange={e => setEmail(e.target.value)} />
 
@@ -81,7 +83,7 @@ const EditProfile = () => {
                 <InputField className="file-upload" type="file" id="profile-picture" accept="image/*" onChange={handleProfilePictureChange} />
 
                 <Button className="save-btn" buttonName="Save" type="submit">Save</Button>
-            </form>
+            </form>)}
         </main>
     );
 };
